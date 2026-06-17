@@ -1,0 +1,56 @@
+﻿@model Product
+<div class="container">
+    <div class="card shadow-lg mx-auto col-md-6 p-4 myCard">
+        <form asp-action="DeleteData" method="post" id="deleteForm">
+            <input type="hidden" asp-for="Id" />
+            <h2 class="text-danger text-center m-2">Delete Confirmation</h2>
+
+            <div class="text-center myUpdate mt-4 p-2">
+                <p><strong>@Model.Id</strong></p>
+                <p><strong>@Model.Name</strong></p>
+                <p><strong>₹ @Model.Price</strong></p>
+            </div>
+
+            <div class="d-flex gap-lg-3 mt-3 justify-content-center">
+                <button type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                        class="btn btn-danger">
+                    Delete
+                </button>
+                <a asp-action="ShowData" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+        <div class="modal" id="deleteModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Confirm Delete</h4>
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Are you Sure want to delete?</p>
+                        <strong>@Model.Name</strong>
+                        <p>This Action cannot be done.</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"
+                            data-bs-dismiss="modal"
+                                class="btn btn-secondary">
+                            Cancel
+                        </button>
+
+                        <button type="submit"
+                            form="deleteForm"
+                            class="btn btn-danger">Yes,Delete</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

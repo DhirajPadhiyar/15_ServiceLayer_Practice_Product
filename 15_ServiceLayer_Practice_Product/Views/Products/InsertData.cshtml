@@ -1,0 +1,25 @@
+﻿@model Product
+
+<div class="container">
+    <div class="card shadow-lg mx-auto col-md-6 p-4 myCard">
+        <form asp-action="InsertData" method="post">
+            <h2 class="text-danger text-center m-2">Insert Product</h2>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control myInput" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control myInput" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-lg-3 mb-3 justify-content-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-action="ShowData" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
