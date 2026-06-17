@@ -15,7 +15,7 @@ namespace _15_ServiceLayer_Practice_Product.Services
         public ProductService(ApplicationDbContext context)
         {
             _context = context;
-        }
+        } 
 
         public List<Product> ListProducts(string searchText)
         {
